@@ -1,0 +1,17 @@
+%runthelough-logo {
+	font-family: "Century Gothic";
+	font-size: 120px;
+	letter-spacing: -3px;
+}
+
+.logo-runlough {
+	@extend %runthelough-logo;
+	color: black;
+	font-weight: 1000;
+}
+
+.logo-the {
+	@extend %runthelough-logo;
+	color: #e58636;
+	font-weight: 500;
+}
