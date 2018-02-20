@@ -22,18 +22,18 @@ header.masthead {
   p {
     font-weight: 300;
   }
-  %runthelough-logy {
+  %runthelough-logo {
     font-family: "Century Gothic";
     font-size: 50px;
-    letter-spacing: -3px;
+    letter-spacing: -2px;
   }
   .logo-runlough {
-    @extend %runthelough-logy;
+    @extend %runthelough-logo;
     color: black;
     font-weight: 1000;
   }
   .logo-the {
-    @extend %runthelough-logy;
+    @extend %runthelough-logo;
     color: #e58636;
     font-weight: 500;
   }
@@ -44,8 +44,9 @@ header.masthead {
     h2 {
       font-size: 30px;
     }
-    %runthelough-logy {
+    %runthelough-logo {
       font-size: 80px;
+      letter-spacing: -3px;
     }
   }
   @media (min-width: 768px) {
@@ -55,8 +56,9 @@ header.masthead {
     h2 {
       font-size: 40px;
     }
-    %runthelough-logy {
+    %runthelough-logo {
       font-size: 120px;
+      letter-spacing: -3px;
     }
   }
   @media (min-width: 992px) {
