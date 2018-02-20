@@ -2,7 +2,7 @@
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url('../assets/img/header-high-res.jpg');
+  background-image: url('../assets/img/header-low-res.jpg');
   background-position: center center;
   @include background-cover;
   hr {
@@ -73,9 +73,10 @@ header.masthead {
       font-size: 4rem;
     }
   }
+  @media (min-width: 1243px) {
+    background-image: url('../assets/img/header-med-res.jpg');
+  }
   @media (min-width: 2561px) {
-    header.masthead {
-      background-image: url("../assets/img/header-med-res.jpg");
-    }
+    background-image: url('../assets/img/header-high-res.jpg');
   }
 }
