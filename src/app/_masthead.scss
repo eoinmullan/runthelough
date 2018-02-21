@@ -25,20 +25,13 @@ header.masthead {
   a {
     color: $white;
   }
-  %runthelough-logo {
-    font-family: "Century Gothic", "Futura";
-    font-size: 50px;
-    letter-spacing: -2px;
-  }
-  .logo-runlough {
-    @extend %runthelough-logo;
-    color: black;
-    font-weight: 1000;
-  }
-  .logo-the {
-    @extend %runthelough-logo;
-    color: #e58636;
-    font-weight: 500;
+  .runthelough-logo {
+    display: inline-block;
+    width: 290px;
+    height: 49px;
+    background-image: url('../assets/img/runthelough-small.png');
+    background-position: center center;
+    background-repeat: no-repeat;
   }
   @media (min-width: 480px) {
     p {
@@ -47,9 +40,10 @@ header.masthead {
     h2 {
       font-size: 30px;
     }
-    %runthelough-logo {
-      font-size: 80px;
-      letter-spacing: -3px;
+    .runthelough-logo {
+      width: 428px;
+      height: 73px;
+      background-image: url('../assets/img/runthelough-med.png');
     }
   }
   @media (min-width: 768px) {
@@ -59,9 +53,10 @@ header.masthead {
     h2 {
       font-size: 40px;
     }
-    %runthelough-logo {
-      font-size: 120px;
-      letter-spacing: -3px;
+    .runthelough-logo {
+      width: 684px;
+      height: 117px;
+      background-image: url('../assets/img/runthelough-large.png');
     }
   }
   @media (min-width: 992px) {
