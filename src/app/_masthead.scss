@@ -18,8 +18,10 @@ header.masthead {
     font-weight: 300;
   }
   h2, h3 {
-    color: white;
     text-shadow: 2px 2px #555;
+  }
+  h3 {
+    font-size: 20px;
   }
   p {
     font-weight: 300;
@@ -27,60 +29,25 @@ header.masthead {
   a {
     color: $white;
   }
-  .runthelough-logo {
-    display: inline-block;
-    width: 290px;
-    height: 49px;
-    background-image: url('../assets/img/runthelough-small.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-  }
-  img.nugents-splash {
+  img {
     width: 100%;
     height: 100%;
   }
-  @media (min-width: 480px) {
-    p {
-      font-size: 1.15rem;
-    }
+  @media (min-width: 500px) {
     h2 {
       font-size: 30px;
     }
-    .runthelough-logo {
-      width: 428px;
-      height: 73px;
-      background-image: url('../assets/img/runthelough-med.png');
-    }
   }
   @media (min-width: 768px) {
-    p {
-      font-size: 1.15rem;
-    }
     h2 {
       font-size: 40px;
     }
-    .runthelough-logo {
-      width: 684px;
-      height: 117px;
-      background-image: url('../assets/img/runthelough-large.png');
+    h3 {
+      font-size: 28px;
     }
-    img.nugents-splash {
+    img {
       width: auto;
       height: auto;
-    }
-  }
-  @media (min-width: 992px) {
-    height: 100vh;
-    min-height: 650px;
-    padding-top: 0;
-    padding-bottom: 0;
-    h1 {
-      font-size: 3rem;
-    }
-  }
-  @media (min-width: 1200px) {
-    h1 {
-      font-size: 4rem;
     }
   }
   @media (min-width: 1243px) {
