@@ -35,6 +35,10 @@ header.masthead {
     background-position: center center;
     background-repeat: no-repeat;
   }
+  img.nugents-splash {
+    width: 100%;
+    height: 100%;
+  }
   @media (min-width: 480px) {
     p {
       font-size: 1.15rem;
@@ -59,6 +63,10 @@ header.masthead {
       width: 684px;
       height: 117px;
       background-image: url('../assets/img/runthelough-large.png');
+    }
+    img.nugents-splash {
+      width: auto;
+      height: auto;
     }
   }
   @media (min-width: 992px) {
