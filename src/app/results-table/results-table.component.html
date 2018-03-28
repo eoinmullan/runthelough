@@ -14,13 +14,13 @@
   <tbody>
 	<ng-template ngFor let-result [ngForOf]="results" [ngForTrackBy]="resultTrackBy">
 	  <tr>
-	    <td>{{result.bib}}</td>
-	    <td>{{result.name}}</td>
+	    <td>{{result.b}}</td>
+	    <td>{{result.n}}</td>
 	    <td></td>
-	    <td>{{result.category}}</td>
+	    <td>{{result.a}}</td>
 	    <td></td>
-	    <td>{{result.club}}</td>
-	    <td>{{result.time | timeSecondsToString}}</td>
+	    <td>{{result.c}}</td>
+	    <td>{{result.t | timeSecondsToString}}</td>
 	  </tr>
 	</ng-template>
   </tbody>

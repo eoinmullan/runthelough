@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Result } from '../models/result';
+import { ResultList } from '../models/result-list';
+import { Restangular } from 'ng2-restangular';
 
 @Injectable()
 export class ResultsService {
 
-  constructor() { }
+  constructor(private restangular: Restangular) { }
 
-  getLatestResults(): Array<Result> {
-    return [
-    	{bib: "123", name: "Eoin", club: "Omagh", category: "M35", time: 360},
-    	{bib: "234", name: "Aileen Johnson", club: "Derry City Track Club", category: "FO", time: 470},
-    	{bib: "345", name: "Eabha", club: "Eskra", category: "FJ", time: 580}
-    ]
+  getLatestResults(currentNumberOfResults: number, currentResultsVersion: number) {
+    return this.restangular
+    	.one('results')
+    	.customGET("", {currentNumberOfResults: currentNumberOfResults, currentVersion: currentResultsVersion});
   }
 
 }
