@@ -1,7 +1,7 @@
 export interface Result {
-	bib: Number
-	name: String;
-	club: String;
-	category: String;
-	time: Number
+	bib: number
+	name: string;
+	club: string;
+	category: string;
+	time: number
 }

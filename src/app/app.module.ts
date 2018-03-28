@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ResultsTableComponent } from './results-table/results-table.component';
+import { TimeSecondsToStringPipe } from './pipes/time-seconds-to-string.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ResultsTableComponent
+    ResultsTableComponent,
+    TimeSecondsToStringPipe
   ],
   imports: [
     BrowserModule
