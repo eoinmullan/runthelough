@@ -3,21 +3,17 @@
 <header class="masthead text-center text-white d-flex">
   <div class="container my-auto">
     <div class="row">
-      <div class="col-lg-9 mx-auto">
-        <h2>Easter Monday - 2nd April, 2018</h2>
-        <h2 class="m2-5">Timed lap of <em>The Lough</em> (1.2 mile)</h2>
-        <a class="btn btn-primary btn-xl js-scroll-trigger mb-3" href="https://register.primoevents.com/ps/event/runthelough" target="_blank">Register Online Now!</a>
-      </div>
       <div class="col-lg-10 mx-auto">
-        <h1 class="my-5">
+        <h1 class="my-2">
           <img src="../assets/img/runthelough-large.png">
         </h1>
       </div>
-      <div class="col-lg-8 mx-auto">
-        <h2 class="mt-3">First children's race starts at 4.15pm</h2>
-        <h2>Adult races start at 5pm</h2>
-        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#timetable">View timetable of races</a>
+      <div class="col-12 mx-auto">
+        <a class="btn btn-primary btn-xl js-scroll-trigger my-1" href="#results">View Live Leaderboard</a>
       </div>
+      <div class="col-12 mx-auto">
+        <a class="btn btn-primary btn-xl js-scroll-trigger my-1" href="#timetable">Timetable of races</a>
+      </div>      
     </div>
     <h3 class="mt-5">With thanks to our sponsors</h3>
     <div class="col-lg-8 mx-auto container">          
@@ -26,8 +22,14 @@
       </a>
     </div>
   </div>
-
 </header>
+
+<section class="results-section" id="results">
+  <h2 class="text-center results-heading">Live Leaderboard</h2>
+  <div class="container">
+    <app-results-table></app-results-table>
+  </div>
+</section>
 
 <section class="bg-primary section-clipped-bottom" id="about">
   <div class="container">

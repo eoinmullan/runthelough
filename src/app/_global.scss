@@ -67,6 +67,12 @@ section {
 .timetable-heading {
   margin: 2rem;
 }
+.results-section {
+  background: $gray-100
+}
+.results-heading {
+  font-size: 40px;
+}
 
 ::-moz-selection {
   color: $white;

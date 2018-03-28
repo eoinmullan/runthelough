@@ -1,0 +1,27 @@
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td>Bib</td>
+      <td>Name</td>
+      <td>Pos.</td>
+      <td>Cat.</td>
+      <td>Cat. Pos.</td>
+      <td>Club</td>
+      <td>Time</td>
+    </tr>
+  </thead>
+  <tbody>
+	<ng-template ngFor let-result [ngForOf]="results" [ngForTrackBy]="resultTrackBy">
+	  <tr>
+	    <td>{{result.bib}}</td>
+	    <td>{{result.name}}</td>
+	    <td></td>
+	    <td>{{result.category}}</td>
+	    <td></td>
+	    <td>{{result.club}}</td>
+	    <td>{{result.time}}</td>
+	  </tr>
+	</ng-template>
+  </tbody>
+</table>
