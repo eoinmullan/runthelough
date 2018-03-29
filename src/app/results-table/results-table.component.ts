@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Result } from '../models/result';
+import { ResultDto } from '../models/result';
 import { ResultsService } from '../services/results.service';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { ResultList } from '../models/result-list';
+import { ExpandedResult } from '../models/expanded-result';
 
 @Component({
   selector: 'app-results-table',
@@ -14,8 +15,20 @@ import { ResultList } from '../models/result-list';
 })
 export class ResultsTableComponent implements OnInit {
 
+	mapResultDtoToExpandedResult(resultDto: ResultDto): ExpandedResult {
+		return {
+			bib: resultDto.b,
+			name: resultDto.n,
+			position: 1,
+			category: resultDto.a,
+			catPos: 1,
+			club: resultDto.c,
+			time: resultDto.t
+		}
+	}
+
 	pollingData: Subscription;
-  results: Array<Result> = [];
+  results: Array<ExpandedResult> = [];
 
   private currentResultsVersion = 0;
   private currentNumberOfResults = 0;
@@ -33,13 +46,14 @@ export class ResultsTableComponent implements OnInit {
 	private updateResults(response: ResultList) {
 		if (response.resultsVersion == this.currentResultsVersion) {
 			console.log("concatenating results");
-			this.results = this.results.concat(response.resultsList);
+			this.results = this.results.concat(response.resultsList.map((x, y) => this.mapResultDtoToExpandedResult(x)));
 		} else {
-			console.log("resetting results")
-			this.results = response.resultsList;
+			console.log("resetting results");
+			this.results = response.resultsList.map(x => this.mapResultDtoToExpandedResult(x));
 			this.currentResultsVersion = response.resultsVersion
 		}
 		this.currentNumberOfResults = this.results.length;
-		this.results = this.results.sort((a, b) => a.t - b.t);
+		this.results = this.results.sort((a, b) => a.time - b.time);
+		this.results.forEach((x, i) => x.position = i + 1);
 	}
 }

@@ -1,6 +1,6 @@
-import { Result } from './result';
+import { ResultDto } from './result';
 
 export interface ResultList {
 	resultsVersion: number;
-	resultsList: Array<Result>;
+	resultsList: Array<ResultDto>;
 }

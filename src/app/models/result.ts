@@ -1,4 +1,4 @@
-export interface Result {
+export interface ResultDto {
 	b: number
 	n: string;
 	c: string;
