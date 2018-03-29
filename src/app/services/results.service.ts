@@ -10,7 +10,7 @@ export class ResultsService {
 
   getLatestResults(currentNumberOfResults: number, currentResultsVersion: number) {
     let params = new HttpParams();
-    params = params.append('currentNumberOfResults', currentNumberOfResults.toString());
+    params = params.append('companiesReceived', currentNumberOfResults.toString());
     params = params.append('currentVersion', currentResultsVersion.toString());
     return this.http.get<ResultList>(
       environment.apiUrl + 'results', { params }

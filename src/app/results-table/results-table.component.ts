@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Result } from '../models/result';
 import { ResultsService } from '../services/results.service';
+import 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
+import { ResultList } from '../models/result-list';
 
 @Component({
   selector: 'app-results-table',
@@ -10,7 +14,8 @@ import { ResultsService } from '../services/results.service';
 })
 export class ResultsTableComponent implements OnInit {
 
-  results: Array<Result>;
+	pollingData: Subscription;
+  results: Array<Result> = [];
 
   private currentResultsVersion = 0;
   private currentNumberOfResults = 0;
@@ -18,11 +23,22 @@ export class ResultsTableComponent implements OnInit {
   constructor(private resultsService: ResultsService) { }
 
   ngOnInit() {
-    this.resultsService
-    	.getLatestResults(this.currentNumberOfResults, this.currentResultsVersion)
+		this.pollingData = Observable.interval(5000).startWith(0)
+		.switchMap(() => this.resultsService.getLatestResults(this.currentNumberOfResults, this.currentResultsVersion))
     	.subscribe(response => {
-    		this.results = response.resultsList;
+    		this.updateResults(response);
     	})
   }
 
+	private updateResults(response: ResultList) {
+		if (response.resultsVersion == this.currentResultsVersion) {
+			console.log("concatenating results");
+			this.results = this.results.concat(response.resultsList);
+		} else {
+			console.log("resetting results")
+			this.results = response.resultsList;
+			this.currentResultsVersion = response.resultsVersion
+		}
+		this.currentNumberOfResults = this.results.length;
+	}
 }
