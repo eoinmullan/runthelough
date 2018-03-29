@@ -40,5 +40,6 @@ export class ResultsTableComponent implements OnInit {
 			this.currentResultsVersion = response.resultsVersion
 		}
 		this.currentNumberOfResults = this.results.length;
+		this.results = this.results.sort((a, b) => a.t - b.t);
 	}
 }
