@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ResultsTableComponent } from './results-table/results-table.component';
 import { TimeSecondsToStringPipe } from './pipes/time-seconds-to-string.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

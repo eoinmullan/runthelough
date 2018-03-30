@@ -1,4 +1,27 @@
-
+<div class="row">
+  <div class="col-4 text-right">
+    <h4>Gender: </h4>
+  </div>
+  <div class="col-2">
+    <select [(ngModel)]="selectedGenderValue" (ngModelChange)="onGenderSelect(selectedGenderValue)">
+        <option *ngFor="let option of genderOptions" 
+                [value]="option"> 
+          {{ option }}
+        </option>
+  </select>
+  </div>
+  <div class="col-3 text-right">
+    <h4>Category: </h4>
+  </div>
+  <div class="col-3">
+    <select [(ngModel)]="selectedCategoryValue" (ngModelChange)="onCategorySelect(selectedCategoryValue)">
+        <option *ngFor="let option of categoryOptions" 
+                [value]="option"> 
+          {{ option }}
+        </option>
+  </select>
+  </div>
+</div>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -6,19 +29,17 @@
       <td>Name</td>
       <td>Pos.</td>
       <td>Cat.</td>
-      <td>Cat. Pos.</td>
       <td>Club</td>
       <td>Time</td>
     </tr>
   </thead>
   <tbody>
-	<ng-template ngFor let-result [ngForOf]="results" [ngForTrackBy]="resultTrackBy">
+	<ng-template ngFor let-result [ngForOf]="displayedResults" [ngForTrackBy]="resultTrackBy">
 	  <tr>
 	    <td>{{result.bib}}</td>
 	    <td>{{result.name}}</td>
 	    <td>{{result.position}}</td>
 	    <td>{{result.category}}</td>
-	    <td>{{result.catPos}}</td>
 	    <td>{{result.club}}</td>
 	    <td>{{result.time | timeSecondsToString}}</td>
 	  </tr>
