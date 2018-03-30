@@ -15,6 +15,18 @@ import { ExpandedResult } from '../models/expanded-result';
 })
 export class ResultsTableComponent implements OnInit {
 
+	updatePositionTableHeading(): any {
+		if (this.genderFilterValue === "A" && this.categoryFilterValue === "A") {
+			this.positionTableHeading = "Position";
+		} else if (this.genderFilterValue === "A") {
+			this.positionTableHeading = "Age Pos."
+		} else if (this.categoryFilterValue === "A") {
+			this.positionTableHeading = "Gender Pos."
+		} else {
+			this.positionTableHeading = "Cat. Pos."
+		}
+	}
+
 	mapResultDtoToExpandedResult(resultDto: ResultDto, index: number): ExpandedResult {
 		return {
 			bib: resultDto.b,
@@ -27,19 +39,25 @@ export class ResultsTableComponent implements OnInit {
 	}
 
 	filterByGender(input: ResultDto): Boolean {
+		var retVal;
 		if (this.genderFilterValue === "A") {
-			return true;
+			retVal = true;
 		} else {
-			return input.a.startsWith(this.genderFilterValue)
+			retVal = input.a.startsWith(this.genderFilterValue)
 		}
+		this.updatePositionTableHeading();
+		return retVal;
 	}
 
 	filterByCategory(input: ResultDto): Boolean {
+		var retVal;
 		if (this.categoryFilterValue === "A") {
-			return true;
+			retVal = true;
 		} else {
-			return input.a.endsWith(this.categoryFilterValue)
+			retVal = input.a.endsWith(this.categoryFilterValue)
 		}
+		this.updatePositionTableHeading();
+		return retVal;
 	}
 
 	pollingData: Subscription;
@@ -55,12 +73,14 @@ export class ResultsTableComponent implements OnInit {
 	private genderFilterValue: string;
 	private selectedCategoryValue: string;
 	private categoryFilterValue: string;
+	private positionTableHeading: string;
 
   constructor(private resultsService: ResultsService) {
 		this.selectedGenderValue = "All";
 		this.genderFilterValue = "A";
 		this.selectedCategoryValue = "All";
-		this.categoryFilterValue= "A";
+		this.categoryFilterValue = "A";
+		this.positionTableHeading = "Position"
 	}
 
 	onGenderSelect(val){
