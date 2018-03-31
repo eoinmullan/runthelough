@@ -119,10 +119,8 @@ export class ResultsTableComponent implements OnInit {
 
 	private updateResults(response: ResultList) {
 		if (response.resultsVersion == this.currentResultsVersion) {
-			console.log("concatenating results");
 			this.inputResults = this.inputResults.concat(response.resultsList);
 		} else {
-			console.log("resetting results");
 			this.inputResults = response.resultsList;
 			this.currentResultsVersion = response.resultsVersion
 		}
