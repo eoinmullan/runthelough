@@ -69,11 +69,11 @@ export class ResultsTableComponent implements OnInit {
 
   private currentResultsVersion = 0;
 	private currentNumberOfResults = 0;
-	private selectedGenderValue: string;
+	selectedGenderValue: string;
 	private genderFilterValue: string;
-	private selectedCategoryValue: string;
+	selectedCategoryValue: string;
 	private categoryFilterValue: string;
-	private positionTableHeading: string;
+	positionTableHeading: string;
 
   constructor(private resultsService: ResultsService) {
 		this.selectedGenderValue = "All";
