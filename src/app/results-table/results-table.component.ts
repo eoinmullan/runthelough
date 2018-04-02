@@ -104,7 +104,7 @@ export class ResultsTableComponent implements OnInit {
 		} else if (val === "Open") {
 			this.categoryFilterValue = "O";
 		} else if (val === "19 & Under") {
-			this.categoryFilterValue = "U19";
+			this.categoryFilterValue = "19";
 		} else if (val.startsWith("Vet")) {
 			this.categoryFilterValue = val.substr(4)
 		}
@@ -112,21 +112,11 @@ export class ResultsTableComponent implements OnInit {
 	}
 
   ngOnInit() {
-		this.pollingData = Observable.interval(5000).startWith(0)
-		.switchMap(() => this.resultsService.getLatestResults(this.currentNumberOfResults, this.currentResultsVersion))
-    	.subscribe(response => {
-    		this.updateResults(response);
-    	})
+    		this.updateResults();
   }
 
-	private updateResults(response: ResultList) {
-		if (response.resultsVersion == this.currentResultsVersion) {
-			this.inputResults = this.inputResults.concat(response.resultsList);
-		} else {
-			this.inputResults = response.resultsList;
-			this.currentResultsVersion = response.resultsVersion
-		}
-		this.currentNumberOfResults = this.inputResults.length;
+	private updateResults() {
+		this.inputResults = this.resultsService.getLatestResults(0, 0);
 		this.updateDisplayedResults();
 	}
 
