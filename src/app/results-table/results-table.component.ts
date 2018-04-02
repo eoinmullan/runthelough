@@ -100,7 +100,7 @@ export class ResultsTableComponent implements OnInit {
 		if (val === "All") {
 			this.categoryFilterValue = "A";
 		} else if (val.startsWith("Year")) {
-			this.categoryFilterValue = val.substr(5)
+			this.categoryFilterValue = "Y" + val.substr(5)
 		} else if (val === "Open") {
 			this.categoryFilterValue = "O";
 		} else if (val === "19 & Under") {
