@@ -74,6 +74,7 @@ export class ResultsTableComponent implements OnInit {
 	selectedCategoryValue: string;
 	private categoryFilterValue: string;
 	positionTableHeading: string;
+	resultsIn: Boolean;
 
   constructor(private resultsService: ResultsService) {
 		this.selectedGenderValue = "All";
@@ -81,6 +82,7 @@ export class ResultsTableComponent implements OnInit {
 		this.selectedCategoryValue = "All";
 		this.categoryFilterValue = "A";
 		this.positionTableHeading = "Position"
+		this.resultsIn = false;
 	}
 
 	onGenderSelect(val){
@@ -134,5 +136,6 @@ export class ResultsTableComponent implements OnInit {
 			.filter(x => this.filterByCategory(x))
 			.sort((a, b) => a.t - b.t)
 			.map((x, i) => this.mapResultDtoToExpandedResult(x, i));
+		this.resultsIn = this.displayedResults.length !== 0;
 	}
 }

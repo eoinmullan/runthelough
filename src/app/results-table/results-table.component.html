@@ -33,7 +33,7 @@
       <td>Time</td>
     </tr>
   </thead>
-  <tbody>
+  <tbody *ngIf="resultsIn">
 	<ng-template ngFor let-result [ngForOf]="displayedResults">
 	  <tr>
 	    <td>{{result.bib}}</td>
@@ -46,3 +46,6 @@
 	</ng-template>
   </tbody>
 </table>
+<h4 *ngIf="!resultsIn" class="text-center">
+  No results available yet. Results will appear here shortly after competitors finish their lap.
+</h4>
